@@ -1,0 +1,18 @@
+.header
+	.row
+		.three.columns.section
+			=link_to logo, root_url
+		.five.columns
+		.three.columns.section
+			=form_tag "/join", :method =>"get" do
+				=text_field_tag :query,params[:query], :placeholder => "COURSE CODE", :class =>"join"
+				=submit_tag "JOIN", :class => "small black button"
+		
+		-if current_user.blank?
+			.one.columns.login.section.popup
+				=link_to "LOGIN", "#"
+				.popup_content.shadow
+					=render :partial => "devise/sessions/new"
+		-else
+			.one.columns.logout.section
+				=link_to "LOGOUT", logout_path
