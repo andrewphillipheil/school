@@ -4,8 +4,13 @@ gem 'rails', '3.1.3'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
+group :development, :test do
+	gem 'sqlite3'
+end
 
-gem 'sqlite3'
+group :production do
+	gem 'pg'
+end
 gem 'mysql2'
 gem 'execjs'
 gem 'therubyracer'
@@ -13,7 +18,6 @@ gem 'json'
 gem 'zurb-foundation', "2.1.5.1"
 gem 'haml'
 gem 'devise'
-gem 'pg'
 gem 'formtastic'
 gem "omniauth-facebook"
 
